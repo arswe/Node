@@ -4,10 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon backend/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "arswe",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
