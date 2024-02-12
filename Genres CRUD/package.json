@@ -1,0 +1,19 @@
+{
+  "name": "genres-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon backend/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.2",
+    "express": "^4.18.2",
+    "joi": "^17.12.1",
+    "nodemon": "^3.0.3"
+  }
+}
