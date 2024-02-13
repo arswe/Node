@@ -27,6 +27,7 @@ async function createGenres() {
   console.log(result)
 }
 
+// queary selector
 async function getCourse() {
   const genres = await Genres.find({
     author: 'arswe',
