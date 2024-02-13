@@ -1,5 +1,6 @@
 const express = require('express')
 const helmet = require('helmet')
+const morgan = require('morgan')
 const colors = require('colors')
 const dotenv = require('dotenv')
 const Joi = require('joi')
@@ -11,6 +12,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(helmet())
+app.use(morgan('tiny'))
 
 app.use(logger)
 
