@@ -29,8 +29,12 @@ async function createGenres() {
 
 // queary selector
 async function getCourse() {
+  const pageNumer = 2
+  const pageSize = 10
+
   const genres = await Genres.find({ author: 'arswe', isPublished: true })
     .or([{ author: 'arswe' }, { isPublished: true }])
+    .skip((pageNumer - 1) * pageSize)
     .limit(10)
     .sort({ name: 1 })
     .count()
