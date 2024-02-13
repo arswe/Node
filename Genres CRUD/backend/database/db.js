@@ -28,7 +28,12 @@ async function createGenres() {
 }
 
 async function getCourse() {
-  const genres = await Genres.find({author: 'arswe', isPublished: true})
+  const genres = await Genres.find({
+    author: 'arswe',
+    isPublished: true,
+  })
+    .limit(10)
+    .sort({ name: 1 })
   console.log(genres)
 }
 
