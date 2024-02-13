@@ -18,14 +18,18 @@ const Genres = mongoose.model('Genres', genresSchema)
 
 async function createGenres() {
   const genres = new Genres({
-    name: 'node.js genres',
+    name: 'React genres',
     author: 'arswe',
-    tag: ['node', 'backend'],
+    tags: ['React', 'Frontend'],
     isPublished: true,
   })
   const result = await genres.save()
-
   console.log(result)
 }
 
-createGenres()
+async function getCourse() {
+  const genres = await Genres.find(author: 'arswe', isPublished: true)
+  console.log(genres)
+}
+
+getCourse()
