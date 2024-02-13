@@ -2,12 +2,12 @@ const express = require('express')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const colors = require('colors')
-const config = require('config')
 const dotenv = require('dotenv')
 const Joi = require('joi')
 
 const logger = require('./middlewares/logger')
-const genres = require('./routes/genres')
+const genreRoutes = require('./routes/genreRoutes')
+const homeRoutes = require('./routes/homeRoutes')
 
 const app = express()
 
@@ -28,11 +28,9 @@ app.use(logger)
 
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
-app.get('/', (req, res) => {
-  res.send('Hello Genre CRUD!')
-})
+app.get('/', homeRoutes)
 
-app.use('/api/courses', genres)
+app.use('/api/courses', genreRoutes)
 
 const port = process.env.PORT || 8000
 app.listen(port, () => {
