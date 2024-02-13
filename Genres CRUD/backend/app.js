@@ -5,6 +5,18 @@ const Joi = require('joi')
 const app = express()
 
 app.use(express.json())
+
+// middleware function
+app.use(function (req, res, next) {
+  console.log('logging.....')
+  next()
+})
+
+app.use(function (req, res, next) {
+  console.log('Authenticating.....')
+  next()
+})
+
 dotenv.config()
 const port = process.env.PORT || 8000
 
