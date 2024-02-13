@@ -29,10 +29,8 @@ async function createGenres() {
 
 // queary selector
 async function getCourse() {
-  const genres = await Genres.find({
-    author: 'arswe',
-    isPublished: true,
-  })
+  const genres = await Genres.find({ author: 'arswe', isPublished: true })
+    .or([{ author: 'arswe' }, { isPublished: true }])
     .limit(10)
     .sort({ name: 1 })
     .select({ name: 1, tags: 1 })
