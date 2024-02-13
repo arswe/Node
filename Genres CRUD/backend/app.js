@@ -2,20 +2,15 @@ const express = require('express')
 const colors = require('colors')
 const dotenv = require('dotenv')
 const Joi = require('joi')
+const logger = require('./middlewares/logger')
 const app = express()
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
 
 // middleware function
-app.use(function (req, res, next) {
-  console.log('logging.....')
-  next()
-})
-
-app.use(function (req, res, next) {
-  console.log('Authenticating.....')
-  next()
-})
+app.use(logger)
 
 dotenv.config()
 const port = process.env.PORT || 8000
