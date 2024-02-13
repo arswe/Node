@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
 mongoose
-  .connect('mongodb://127.0.0.1:27017')
-  .then(() => console.log('connect mongoDB'))
-  .catch((err) => console.error('error', err))
+  .connect('mongodb://localhost/playground')
+  .then(() => console.log('Connect mongoDB...'))
+  .catch((err) => console.error('Error Connection Fail', err))
