@@ -15,7 +15,6 @@ app.use(helmet())
 
 if (app.get('env') === 'development') {
   app.use(morgan('tiny'))
-  console.log('Morgan Enable')
 }
 
 app.use(logger)
