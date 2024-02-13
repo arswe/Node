@@ -28,7 +28,7 @@ async function createGenres() {
 }
 
 async function getCourse() {
-  const genres = await Genres.find(author: 'arswe', isPublished: true)
+  const genres = await Genres.find({author: 'arswe', isPublished: true})
   console.log(genres)
 }
 
