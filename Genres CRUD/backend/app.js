@@ -2,8 +2,10 @@ const express = require('express')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const colors = require('colors')
+const config = require('config')
 const dotenv = require('dotenv')
 const Joi = require('joi')
+
 const logger = require('./middlewares/logger')
 const app = express()
 
@@ -13,15 +15,19 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(helmet())
 
+// config
+dotenv.config()
+const port = process.env.PORT || 8000
+
+// Configure Applications
+console.log('Application Name: ' + config.get('name'))
+console.log('Mail server: ' + config.get('mail.host'))
+
 if (app.get('env') === 'development') {
   app.use(morgan('tiny'))
 }
 
 app.use(logger)
-
-// config
-dotenv.config()
-const port = process.env.PORT || 8000
 
 console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
