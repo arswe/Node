@@ -33,7 +33,7 @@ async function getCourse() {
     .or([{ author: 'arswe' }, { isPublished: true }])
     .limit(10)
     .sort({ name: 1 })
-    .select({ name: 1, tags: 1 })
+    .count()
   console.log(genres)
 }
 
