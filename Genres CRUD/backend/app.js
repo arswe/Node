@@ -4,7 +4,6 @@ const morgan = require('morgan')
 const colors = require('colors')
 const dotenv = require('dotenv')
 const Joi = require('joi')
-
 const logger = require('./middlewares/logger')
 const genreRoutes = require('./routes/genreRoutes')
 const homeRoutes = require('./routes/homeRoutes')
