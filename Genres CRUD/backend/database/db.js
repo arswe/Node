@@ -16,8 +16,16 @@ const genresSchema = new mongoose.Schema({
 
 const Genres = mongoose.model('Genres', genresSchema)
 
-const Genres = new Course({
-  name: 'node.js genres',
-  author: 'arswe',
-  tag: ['node', 'backend'],
-})
+async function createGenres() {
+  const genres = new Genres({
+    name: 'node.js genres',
+    author: 'arswe',
+    tag: ['node', 'backend'],
+    isPublished: true,
+  })
+  const result = await genres.save()
+
+  console.log(result)
+}
+
+createGenres()
