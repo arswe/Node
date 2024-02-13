@@ -7,11 +7,12 @@ mongoose
   .catch((err) => console.error('Error Connection Fail', err))
 
 const genresSchema = new mongoose.Schema({
-  name: String,
-  author: String,
+  name: { type: String, require: true },
+  author: { type: String, require: true },
   tags: [String],
   date: { type: Date, default: Date.now },
   isPublished: Boolean,
+  price: Number,
 })
 
 const Genres = mongoose.model('Genres', genresSchema)
