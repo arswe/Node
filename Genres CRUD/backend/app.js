@@ -12,13 +12,19 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(helmet())
-app.use(morgan('tiny'))
+
+if (app.get('env') === 'development') {
+  app.use(morgan('tiny'))
+  console.log('Morgan Enable')
+}
 
 app.use(logger)
 
 // config
 dotenv.config()
 const port = process.env.PORT || 8000
+
+console.log(`NODE_ENV: ${process.env.NODE_ENV}`)
 
 const genres = [
   { id: 1, title: 'action' },
